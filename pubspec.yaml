@@ -4,3 +4,4 @@ verion: 0.0.1
 
 dependencies:
   prompter_qh: 0.0.2
+  image: 2.1.4

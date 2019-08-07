@@ -9,8 +9,8 @@ void main() {
     exit(0);
   }
 
-  
-  prompter.askMultiple('Select formate:', buildFormatOptions());
+  final format = prompter.askMultiple('Select formate:', buildFormatOptions());
+  prompter.askMultiple('Select an image to convert:', buildFileOptions());
 }
 
 List<Option> buildFormatOptions() {
@@ -18,4 +18,15 @@ List<Option> buildFormatOptions() {
     new Option('Convert to jpeg', 'jpeg'),
     new Option('Convert to png', 'png'),
   ];
+}
+
+List<Option> buildFileOptions() {
+  // Get a reference to the current working directory
+
+  // Find all the files and folders in the directory
+
+  // Look through that list and find only the images
+
+  // take all the images and create an option object out of each
+
 }

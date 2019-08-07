@@ -15,7 +15,11 @@ void main() {
       prompter.askMultiple('Select an image to convert:', buildFileOptions());
   final newPath = convertImage(selectedFile, format);
 
-  print(newPath);
+  final shouldOpen = prompter.askBinary('Open the Image?');
+
+  if (shouldOpen) {
+    Process.run('open', [newPath]);
+  }
 }
 
 List<Option> buildFormatOptions() {

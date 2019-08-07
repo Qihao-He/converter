@@ -10,7 +10,8 @@ void main() {
   }
 
   final format = prompter.askMultiple('Select formate:', buildFormatOptions());
-  prompter.askMultiple('Select an image to convert:', buildFileOptions());
+  // prompter.askMultiple('Select an image to convert:', buildFileOptions());
+  buildFileOptions();
 }
 
 List<Option> buildFormatOptions() {
@@ -22,8 +23,11 @@ List<Option> buildFormatOptions() {
 
 List<Option> buildFileOptions() {
   // Get a reference to the current working directory
+  final currentDirectory = Directory.current;
 
   // Find all the files and folders in the directory
+  final entities = currentDirectory.listSync();
+  print(entities);
 
   // Look through that list and find only the images
 

@@ -8,4 +8,14 @@ void main() {
   if(!choice) {
     exit(0);
   }
+
+  
+  prompter.askMultiple('Select formate:', buildFormatOptions());
+}
+
+List<Option> buildFormatOptions() {
+  return [
+    new Option('Convert to jpeg', 'jpeg'),
+    new Option('Convert to png', 'png'),
+  ];
 }

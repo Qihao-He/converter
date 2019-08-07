@@ -10,8 +10,7 @@ void main() {
   }
 
   final format = prompter.askMultiple('Select formate:', buildFormatOptions());
-  // prompter.askMultiple('Select an image to convert:', buildFileOptions());
-  buildFileOptions();
+  prompter.askMultiple('Select an image to convert:', buildFileOptions());
 }
 
 List<Option> buildFormatOptions() {
@@ -23,10 +22,11 @@ List<Option> buildFormatOptions() {
 
 List<Option> buildFileOptions() {
   // Get a reference to the current working directory
-  Directory.current.listSync().where((entity) {
+  return Directory.current.listSync().where((entity) {
     return FileSystemEntity.isFileSync(entity.path) &&
         entity.path.contains(new RegExp(r'\.(png|jpg|jpeg)'));
-  });
-
-  // take all the images and create an option object out of each
+  }).map((entity) {
+    final filename = entity.path.split(Platform.pathSeparator).last;
+    return new Option(filename, entity);
+  }).toList();
 }

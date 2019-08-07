@@ -24,7 +24,8 @@ List<Option> buildFormatOptions() {
 List<Option> buildFileOptions() {
   // Get a reference to the current working directory
   Directory.current.listSync().where((entity) {
-    return FileSystemEntity.isFileSync(entity.path);
+    return FileSystemEntity.isFileSync(entity.path) &&
+        entity.path.contains(new RegExp(r'\.(png|jpg|jpeg)'));
   });
 
   // take all the images and create an option object out of each

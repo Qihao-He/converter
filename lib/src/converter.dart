@@ -13,4 +13,10 @@ convertImage(FileSystemEntity selectedFile, String format) {
   } else {
     print('Sorry, unsupported file type.');
   }
+  new File(replaceExtension(selectedFile.path, format))
+      .writeAsBytesSync(newImage);
+}
+
+String replaceExtension(String path, String newExtension) {
+  return path.replaceAll(new RegExp(r'(png|jpg|jpeg)'), newExtension);
 }

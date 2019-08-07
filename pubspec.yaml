@@ -1,0 +1,6 @@
+name: converter
+description: A tool for image conversion
+verion: 0.0.1
+
+dependencies:
+  prompter_qh: 0.0.2

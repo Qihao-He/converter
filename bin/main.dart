@@ -5,7 +5,7 @@ void main() {
   final prompter = new Prompter();
 
   final bool choice = prompter.askBinary('Are you here to convert an image?');
-  if(!choice) {
+  if (!choice) {
     exit(0);
   }
 
@@ -23,14 +23,9 @@ List<Option> buildFormatOptions() {
 
 List<Option> buildFileOptions() {
   // Get a reference to the current working directory
-  final currentDirectory = Directory.current;
-
-  // Find all the files and folders in the directory
-  final entities = currentDirectory.listSync();
-  print(entities);
-
-  // Look through that list and find only the images
+  Directory.current.listSync().where((entity) {
+    return FileSystemEntity.isFileSync(entity.path);
+  });
 
   // take all the images and create an option object out of each
-
 }

@@ -1,5 +1,5 @@
 name: converter
-description: A tool for image conversion
+description: A tool for image conversion, using terminal providing multi-optinal choices. Handles image from local and covert, store in local.
 verion: 0.0.1
 
 dependencies:
